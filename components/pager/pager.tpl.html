@@ -1,0 +1,17 @@
+<nav class="ui-pager">
+    <ul class="pagination">
+        <li :class="{'disabled': current == 1}">
+            <a v-link="{path: url, query: { page: 1}}">
+                <span>&laquo;</span>
+            </a>
+        </li>
+        <li v-for="idx in pages" :class="{'active': (current == (idx + 1))}">
+            <a v-link="{path: url, query: { page: (idx + 1)}}" >{{idx + 1}}</a>
+        </li>
+        <li :class="{'disabled': current == pages}">
+            <a v-link="{path: url, query: { page: pages}}">
+                <span>&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

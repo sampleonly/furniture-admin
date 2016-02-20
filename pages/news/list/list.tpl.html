@@ -1,0 +1,52 @@
+
+<div class="page">
+    <ui-subpage title="news">
+        <div slot="body">
+
+            <!-- navbar -->
+            <nav class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                    <li><a v-link="{path: '/news/create'}"><i class="glyphicon glyphicon-plus"></i> create</a></li>
+                </ul>
+            </nav>
+            <!-- navbar -->
+            
+            <!-- panel -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- data table -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Views</th>
+                                <th>Date</th>
+                                <th width="200px">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in items">
+                                <td>{{item.id}}</td>
+                                <td>{{item.title}}</td>
+                                <td><span class="badge">{{item.views}}</span></td>
+                                <td>{{item.date}}</td>
+                                <td>
+                                    <a class="btn btn-default btn-xs" v-link="{name: 'news-edit', params: {id: item.id}}"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                    <a class="btn btn-default btn-xs" @click.prevent="remove(item.id)"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- data table -->
+
+                    <!-- pager -->
+                    <ui-pager :current="$route.query.page" :total="total"></ui-pager>
+                    <!-- pager -->
+
+                </div>
+            </div>
+            <!-- panel -->
+        </div>
+    </ui-subpage>
+</div>

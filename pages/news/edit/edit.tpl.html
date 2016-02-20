@@ -1,0 +1,71 @@
+
+<div class="page">
+    <ui-subpage :title="isNew ? 'create news' : 'edit news'">
+        <div slot="body">
+
+            <!-- navbar -->
+            <nav class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                    <li><a v-link="{path: '/news/list'}"><i class="glyphicon glyphicon-th-list"></i> list</a></li>
+                </ul>
+            </nav>
+            <!-- navbar -->
+            
+            <!-- panel -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <!-- form -->
+                    <form class="form-horizontal">
+                        <input type="hidden" v-model="model.id">
+
+                        <!-- form-group -->
+                        <div class="form-group" v-if="!isNew">
+                            <label for="field-id" class="col-lg-2 control-label">ID</label>
+                            <div class="col-lg-4">
+                                <input id="field-id" type="text" class="form-control" :readonly="true" v-model="model.id">
+                            </div>
+                        </div>
+                        <!-- form-group -->
+
+                        <!-- form-group -->
+                        <div class="form-group" v-if="!isNew">
+                            <label for="field-date" class="col-lg-2 control-label">created date</label>
+                            <div class="col-lg-4">
+                                <input id="field-date" type="text" class="form-control" :readonly="true" v-model="model.date">
+                            </div>
+                        </div>
+                        <!-- form-group -->
+
+                        <!-- form-group -->
+                        <div class="form-group">
+                            <label for="field1" class="col-lg-2 control-label">Title</label>
+                            <div class="col-lg-8">
+                                <input id="field1" type="text" class="form-control" placeholder="Title"  v-model="model.title">
+                            </div>
+                        </div>
+                        <!-- form-group -->
+
+                        <!-- form-group -->
+                        <div class="form-group">
+                            <label for="field-content" class="col-lg-2 control-label">Content</label>
+                            <div class="col-lg-8">
+                                <v-summernote :content.sync="model.content"></v-summernote>
+                            </div>
+                        </div>
+                        <!-- form-group -->
+
+                        <!-- form-group -->
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-8">
+                                <button type="submit" class="btn btn-primary" @click.prevent="submit($event)"><i class="glyphicon glyphicon-floppy-disk"></i> Submit</button>
+                            </div>
+                        </div>
+                        <!-- form-group -->
+                    </form>
+                    <!-- form -->
+                </div>
+            </div>
+            <!-- panel -->
+        </div>
+    </ui-subpage>
+</div>
