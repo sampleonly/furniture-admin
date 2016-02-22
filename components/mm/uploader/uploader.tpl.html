@@ -3,17 +3,12 @@
     <div class="mm-uploader_inner">
         <div class="mm-uploader_trigger">
             <span class="mm-uploader_trigger-text">
-                选择文件
+                choose file
             </span>
         </div>
 
         <div class="mm-uploader_list">
-            <div class="mm-uploader_item" v-for="file in files">
-                <div class="mm-uploader_thumb">
-                    <img :src="file.src" class="mm-uploader_thumb-img">
-                    <span class="mm-uploader_thumb-name">{{file.name}}</span>
-                </div>
-            </div>
+            <uploader-item v-for="file in files" :file="file"></uploader-item>
         </div>
     </div>
 </div>

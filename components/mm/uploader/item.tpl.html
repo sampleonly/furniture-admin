@@ -1,0 +1,16 @@
+
+
+<div class="mm-uploader_item">
+    <div class="mm-uploader_thumb">
+        <img :src="file.src" class="mm-uploader_thumb-img">
+        <span class="mm-uploader_thumb-name">{{file.name}}</span>
+
+        <div class="mm-uploader_state">
+            <div class="mm-uploader_progress" v-if="state == 'uploading'">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-primary active" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
