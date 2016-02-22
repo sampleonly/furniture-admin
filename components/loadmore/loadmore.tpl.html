@@ -1,0 +1,6 @@
+
+<div class="loadmore">
+    <span v-if="state == 'loading'" class="loadmore_loading"><b>Loading...</b></span>
+    <a v-if="state == 'ready'" class="loadmore_btn" @click.prevent="load"><b>Load More</b></a>
+    <span v-if="state == 'finished'" class="loadmore_loading"><b>No more data.</b></span>
+</div>

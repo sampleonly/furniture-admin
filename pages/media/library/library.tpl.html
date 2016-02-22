@@ -1,0 +1,27 @@
+
+<div >
+    <ui-subpage title="Image Library">
+        <div slot="body">
+
+            <!-- navbar -->
+            <nav class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                    <li><a><i class="glyphicon glyphicon-cloud-upload"></i> Upload</a></li>
+                </ul>
+            </nav>
+            <!-- navbar -->
+            
+            <!-- panel -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <mm-lib :files="files"></mm-lib>
+
+                    <!-- loadmore -->
+                    <ui-loadmore @loadmore="fetch" :state.sync="loadState"></ui-loadmore>
+                    <!-- loadmore -->
+                </div>
+            </div>
+        </div>
+    </ui-subpage>
+</div>
+ 

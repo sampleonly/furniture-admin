@@ -1,0 +1,19 @@
+
+<div class="mm-uploader">
+    <div class="mm-uploader_inner">
+        <div class="mm-uploader_trigger">
+            <span class="mm-uploader_trigger-text">
+                选择文件
+            </span>
+        </div>
+
+        <div class="mm-uploader_list">
+            <div class="mm-uploader_item" v-for="file in files">
+                <div class="mm-uploader_thumb">
+                    <img :src="file.src" class="mm-uploader_thumb-img">
+                    <span class="mm-uploader_thumb-name">{{file.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
