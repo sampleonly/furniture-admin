@@ -14,11 +14,9 @@
             <!-- panel -->
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <mm-lib :files="files"></mm-lib>
-
-                    <!-- loadmore -->
-                    <ui-loadmore @loadmore="fetch" :state.sync="loadState"></ui-loadmore>
-                    <!-- loadmore -->
+                    <ui-mm-library v-on:fetch.mm="fetch"
+                                   v-on:remove.mm="remove">
+                    </ui-mm-library>
                 </div>
             </div>
         </div>

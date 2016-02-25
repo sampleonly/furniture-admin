@@ -41,7 +41,7 @@
                     <!-- data table -->
 
                     <!-- pager -->
-                    <ui-pager :current="$route.query.page" :total="total"></ui-pager>
+                    <ui-pager :current="$route.query.page" :total="total" v-on:paginate.pager="onPaginate"></ui-pager>
                     <!-- pager -->
 
                 </div>

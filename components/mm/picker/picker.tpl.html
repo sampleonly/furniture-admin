@@ -1,0 +1,45 @@
+
+
+<div class="mm-picker">
+    <div class="mm-picker_gallery" v-if="initialized" v-show="isOpen">
+        <div class="mm-picker_gallery-mask" @click="isOpen = false">
+            <!-- panel -->
+            <div class="panel panel-default" @click.stop>
+                <div class="panel-heading">
+                    <span>choose photos</span>
+                </div>
+                <div class="panel-body">
+                    <!-- grid -->
+                    <div class="row">
+                        <div class="col-md-2" v-for="file in files" track-by="id">
+                            <div class="mm-picker_gallery-item" @click="toggle($event, file)" :class="{'mm-picker_gallery-item__selected': pickedMap[file.id]}">
+                                <div class="mm-picker_gallery-thumb" :style="{backgroundImage:'url(' + file.url + ')'}"></div>
+
+                                <div class="mm-picker_gallery-name">
+                                    <span>{{file.fileName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- grid -->
+
+                    <!-- pager -->
+                    <ui-pager :current.sync="queryParams.page" :page-size="12" :total="total" v-on:paginate.pager="onPaginate"></ui-pager>
+                    <!-- pager -->
+                </div>
+                <div class="panel-footer clearfix">
+                    <a href="#" class="btn btn-primary pull-right" @click.prevent="pick">confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mm-picker_picked-list">
+        <div class="mm-picker_picked-item" v-for="file in picked">
+            <div class="mm-picker_picked-thumb" :style="{backgroundImage: 'url(' + file.url + ')'}"></div>
+        </div>
+        <div class="mm-picker_trigger">
+            <a href="#" class="btn btn-default" @click.prevent="add" >choose photos</a>
+        </div>
+    </div>
+</div>
